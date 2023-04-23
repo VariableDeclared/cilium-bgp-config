@@ -1,0 +1,11 @@
+
+
+#bgp:
+#  announce:
+#    loadbalancerIP: true
+#    podCIDR: true
+#  enabled: true 
+bgpControlPlane:
+  enabled: true
+operator:
+  replicas: 1
