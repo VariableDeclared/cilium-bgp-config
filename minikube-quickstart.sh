@@ -18,4 +18,6 @@ curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/d
 sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
 sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
 rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
-cilium install
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm install cilium cilium/cilium --version 1.13.2 \
+  --namespace kube-system --values cilium-helm-values.yaml
